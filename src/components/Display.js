@@ -12,7 +12,7 @@ function Display({ first, second }) {
 
 Display.propTypes = {
   first: PropTypes.string.isRequired,
-  second: PropTypes.func.isRequired,
+  second: PropTypes.string.isRequired,
 
 };
 

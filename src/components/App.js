@@ -7,7 +7,7 @@ import Display from './Display';
 export default class App extends PureComponent {
   state = {
     title: '',
-    subitle: ''
+    subtitle: ''
 
   };
 
