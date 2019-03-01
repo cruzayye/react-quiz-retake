@@ -1,41 +1,39 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import ColorSelector from './ColorSelector';
-import TextSelector from './TextSelector';
-import Shape from './Shape';
+import React, { PureComponent } from 'react';
+import Controls from './Controls.js';
+import Display from './Display';
 
-export default class App extends React.PureComponent {
+
+
+export default class App extends PureComponent {
   state = {
-    color: '#000000',
-    backgroundColor: '#FFFFFF',
-    text: ''
+    title: '',
+    subitle: ''
+
   };
 
-  handleChange = ({ target }) => {
+  textChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
   };
 
-  click() {
-    console.log('click');
-  }
+  // click() {
+  //   console.log('click');
+  // }
 
   render() {
-    const { color, backgroundColor, text } = this.state;
+    const { title, subtitle } = this.state;
     return (
       <>
-        <button onClick={this.click.bind(this)}>Click</button>
-        <TextSelector text={text} onChange={this.handleChange} />
-        <ColorSelector
-          color={color}
-          backgroundColor={backgroundColor}
-          onChange={this.handleChange}
-        />
-        <Shape
-          color={color}
-          backgroundColor={backgroundColor}
-          text={text}
-        />
+      <Controls type='text' name='title' value={title} onChange={this.textChange}
+      />
+      <Controls type='text'  name='subtitle' value={subtitle} onChange={this.textChange}
+      />
+      <Display
+        first={title}
+        second={subtitle}
+      />
       </>
     );
   }
 }
+
+
